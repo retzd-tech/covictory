@@ -2,12 +2,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:covictory_ar/ar_mode.dart';
 
-
 class Splash extends StatefulWidget {
   @override
   VideoState createState() => VideoState();
 }
-
 
 class VideoState extends State<Splash> with SingleTickerProviderStateMixin{
 
