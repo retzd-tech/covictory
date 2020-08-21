@@ -27,9 +27,6 @@ class VideoState extends State<Splash> with SingleTickerProviderStateMixin{
   @override
   void initState() {
     super.initState();
-
-
-
     animationController = new AnimationController(
         vsync: this, duration: new Duration(seconds: 2));
     animation =
