@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "464786364172",
+    "firebase_url": "https://covictory-ar.firebaseio.com",
+    "project_id": "covictory-ar",
+    "storage_bucket": "covictory-ar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464786364172:android:c187b9872acd6db37d9b29",
+        "android_client_info": {
+          "package_name": "com.xrid.covictory_ar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464786364172-a5iod5jshng35gfkd59fib7p0o1jnjui.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xrid.covictory_ar",
+            "certificate_hash": "c31a909f14c8b819438a608ee1504b73d3b4adf7"
+          }
+        },
+        {
+          "client_id": "464786364172-2ntiokadacd19vgpv8els8heu2cigris.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTSzieq7QwcYmAQ4JkpLiHzrsTrLGoWTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464786364172-2ntiokadacd19vgpv8els8heu2cigris.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
