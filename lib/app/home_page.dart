@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:covictory_ar/app/symptom_profile_page.dart';
 import 'package:covictory_ar/common_widgets/avatar.dart';
 import 'package:covictory_ar/common_widgets/platform_alert_dialog.dart';
 import 'package:covictory_ar/common_widgets/platform_exception_alert_dialog.dart';
@@ -57,6 +58,31 @@ class HomePage extends StatelessWidget {
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(130.0),
           child: _buildUserInfo(user),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            RaisedButton(
+              textColor: Colors.white,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SymptomProfilePage()));
+              },
+              child: Text('Symptom'),
+              color: Colors.blue,
+            ),
+            RaisedButton(
+              textColor: Colors.white,
+              onPressed: () {},
+              child: Text('Places'),
+              color: Colors.blue,
+            ),
+          ],
         ),
       ),
     );
