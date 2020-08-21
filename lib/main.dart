@@ -13,7 +13,6 @@ import 'package:covictory_ar/services/auth_service_adapter.dart';
 import 'package:covictory_ar/services/firebase_email_link_handler.dart';
 import 'package:covictory_ar/services/email_secure_store.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
 
