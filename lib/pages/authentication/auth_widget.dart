@@ -1,5 +1,5 @@
-import 'package:covictory_ar/app/home_page.dart';
-import 'package:covictory_ar/app/sign_in/sign_in_page.dart';
+import 'package:covictory_ar/pages/authentication/home_page.dart';
+import 'package:covictory_ar/pages/authentication/sign_in/sign_in_page.dart';
 import 'package:covictory_ar/services/auth_service.dart';
 import 'package:flutter/material.dart';
 

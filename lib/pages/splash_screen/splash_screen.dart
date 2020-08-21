@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:covictory_ar/ar_mode.dart';
+import 'package:covictory_ar/pages/ar_mode/ar_mode.dart';
 
 class Splash extends StatefulWidget {
   @override

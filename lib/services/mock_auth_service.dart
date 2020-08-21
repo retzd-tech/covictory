@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 import 'package:random_string/random_string.dart' as random;
 
-/// Mock authentication service to be used for testing the UI
+/// Mock pages.authentication service to be used for testing the UI
 /// Keeps an in-memory store of registered accounts so that registration and sign in flows can be tested.
 class MockAuthService implements AuthService {
   MockAuthService({
