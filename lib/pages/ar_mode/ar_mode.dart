@@ -46,7 +46,9 @@ class _ARModeState extends State<ARMode> {
 //      var dangerousIndex = random. nextInt(10);
 //      _addSphere(arCoreController, places[i], dangerousIndex);
 //    }
-    _addSphere(arCoreController, places[0], 5);
+    _addSphere(arCoreController, 5);
+    _addCube(arCoreController);
+    _addCylinder(arCoreController);
   }
 
   void onTapHandler(String name) {
@@ -57,7 +59,7 @@ class _ARModeState extends State<ARMode> {
     );
   }
 
-  void _addSphere(ArCoreController _arCoreController, covariant places, covariant dangerousIndex) {
+  void _addSphere(ArCoreController _arCoreController, covariant dangerousIndex) {
     var material = ArCoreMaterial(
       color: Colors.green,
     );
@@ -82,12 +84,12 @@ class _ARModeState extends State<ARMode> {
     }
     final sphere = ArCoreSphere(
       materials: [material],
-      radius: 0.2,
+      radius: 0.4,
     );
     final node = ArCoreNode(
       shape: sphere,
-      name: "Upnormal Cafe" + message,
-      position: vector.Vector3(0, -0.5, 2),
+      name: "Upnormal Cafe, " + message,
+      position: vector.Vector3(0.5, 1, -7),
     );
     _arCoreController.addArCoreNode(node);
   }
