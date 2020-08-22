@@ -76,3 +76,9 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+sceneform.asset('sampledata/marker.fbx', // 'Source Asset Path' specified during import.
+        'default',                            // 'Material Path' specified during import.
+        'sampledata/marker.sfa',         // '.sfa Output Path' specified during import.
+        'src/main/res/raw/marker')

@@ -46,7 +46,7 @@ class _ARModeState extends State<ARMode> {
 //      var dangerousIndex = random. nextInt(10);
 //      _addSphere(arCoreController, places[i], dangerousIndex);
 //    }
-    _addSphere(arCoreController, 5);
+    _addSphere(arCoreController, places[0] ,5);
     _addCube(arCoreController);
     _addCylinder(arCoreController);
   }
@@ -59,7 +59,7 @@ class _ARModeState extends State<ARMode> {
     );
   }
 
-  void _addSphere(ArCoreController _arCoreController, covariant dangerousIndex) {
+  void _addSphere(ArCoreController _arCoreController, covariant places, covariant dangerousIndex) {
     var material = ArCoreMaterial(
       color: Colors.green,
     );
@@ -68,19 +68,19 @@ class _ARModeState extends State<ARMode> {
         material = ArCoreMaterial(
           color: Colors.green,
         );
-        message = 'Tempat ini tidak memiliki resiko penularan yang tinggi, untuk berjaga - jaga tetap patuhi protokol kesehatan ya.';
+        message = 'Wilayah ini tidak memiliki resiko penularan yang tinggi, untuk berjaga - jaga tetap patuhi protokol kesehatan ya.';
       }
     if (dangerousIndex >= 4 && dangerousIndex <= 7) {
       material = ArCoreMaterial(
         color: Colors.yellow,
       );
-      message = 'Tempat ini memiliki resiko penularan yang sedang, jika tidak terlalu darurat, lebih baik hindari tempat ini jika tempat ini ramai ya.';
+      message = 'Wilayah ini memiliki resiko penularan yang sedang, jika tidak terlalu darurat, lebih baik hindari tempat ini jika tempat ini ramai ya.';
     }
     if (dangerousIndex >= 8) {
       material = ArCoreMaterial(
         color: Colors.red,
       );
-      message = 'Tempat ini memiliki resiko penularan yang sangat tinggi ! dimohon untuk berada di sekitar wilayah ini jika memungkinkan ya.';
+      message = 'Wilayah ini memiliki resiko penularan yang sangat tinggi ! dimohon untuk berada di sekitar wilayah ini jika memungkinkan ya.';
     }
     final sphere = ArCoreSphere(
       materials: [material],
@@ -88,7 +88,7 @@ class _ARModeState extends State<ARMode> {
     );
     final node = ArCoreNode(
       shape: sphere,
-      name: "Upnormal Cafe, " + message,
+      name: places.name + message,
       position: vector.Vector3(0.5, 1, -7),
     );
     _arCoreController.addArCoreNode(node);
