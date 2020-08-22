@@ -152,6 +152,20 @@ class MediterranesnDietView extends StatelessWidget {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: <Widget>[
+                                              if(user.displayName != null)
+                                                Text(
+                                                  user.displayName,
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontFamily:
+                                                    FintnessAppTheme.fontName,
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 16,
+                                                    letterSpacing: -0.2,
+                                                    color:
+                                                    FintnessAppTheme.darkText,
+                                                  ),
+                                                ) else
                                               Text(
                                                 'Jung Ye Rin',
                                                 textAlign: TextAlign.center,
