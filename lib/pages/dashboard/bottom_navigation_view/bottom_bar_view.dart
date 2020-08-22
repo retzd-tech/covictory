@@ -168,10 +168,10 @@ class _BottomBarViewState extends State<BottomBarView>
                           onTap: () {
                             widget.addClick();
                           },
-                          child: Icon(
-                            Icons.add,
-                            color: FintnessAppTheme.white,
-                            size: 32,
+                          child: new Image.asset(
+                            'assets/ARModeButton.png',
+                            width: 25,
+                            height: 25,
                           ),
                         ),
                       ),
