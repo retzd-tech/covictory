@@ -150,9 +150,9 @@ class MediterranesnDietView extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                                CrossAxisAlignment.center,
                                             children: <Widget>[
-                                              if(user.displayName != null)
+                                              if(user.displayName != null && user.displayName != '')
                                                 Text(
                                                   user.displayName,
                                                   textAlign: TextAlign.center,
@@ -262,13 +262,13 @@ class MediterranesnDietView extends StatelessWidget {
                                           MainAxisAlignment.center,
                                       children: <Widget>[
                                         Text(
-                                          'In past 2 weeks',
+                                          'Dalam 2 minggu lalu',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             fontFamily:
                                                 FintnessAppTheme.fontName,
                                             fontWeight: FontWeight.w500,
-                                            fontSize: 16,
+                                            fontSize: 14,
                                             letterSpacing: -0.1,
                                             color: FintnessAppTheme.grey
                                                 .withOpacity(0.5),
@@ -305,13 +305,13 @@ class MediterranesnDietView extends StatelessWidget {
                                               padding: const EdgeInsets.only(
                                                   left: 4, bottom: 2),
                                               child: Text(
-                                                'Visited Count',
+                                                'Dikunjungi',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontFamily:
                                                       FintnessAppTheme.fontName,
                                                   fontWeight: FontWeight.w500,
-                                                  fontSize: 16,
+                                                  fontSize: 14,
                                                   letterSpacing: -0.1,
                                                   color: FintnessAppTheme.grey
                                                       .withOpacity(0.5),
@@ -354,7 +354,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                       const EdgeInsets.only(
                                                           left: 4, bottom: 3),
                                                   child: Text(
-                                                    'Places',
+                                                    'Tempat',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontFamily:
@@ -374,9 +374,6 @@ class MediterranesnDietView extends StatelessWidget {
                                             )
                                           ],
                                         ),
-                                      ),
-                                      SizedBox(
-                                        width: 20,
                                       ),
                                       Row(
                                         children: <Widget>[
@@ -403,7 +400,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                       const EdgeInsets.only(
                                                           left: 4, bottom: 2),
                                                   child: Text(
-                                                    'Infected Chance',
+                                                    'Peluang terinfeksi',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontFamily:
@@ -411,7 +408,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                               .fontName,
                                                       fontWeight:
                                                           FontWeight.w500,
-                                                      fontSize: 16,
+                                                      fontSize: 14,
                                                       letterSpacing: -0.1,
                                                       color: FintnessAppTheme
                                                           .grey
@@ -485,9 +482,6 @@ class MediterranesnDietView extends StatelessWidget {
                                           )
                                         ],
                                       ),
-                                      SizedBox(
-                                        width: 20,
-                                      ),
                                     ],
                                   ),
                                   SizedBox(
@@ -522,7 +516,7 @@ class MediterranesnDietView extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  'Yesterday',
+                                  'Kemarin',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: FintnessAppTheme.fontName,
@@ -589,7 +583,7 @@ class MediterranesnDietView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      'Today',
+                                      'Hari ini',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: FintnessAppTheme.fontName,
@@ -660,7 +654,7 @@ class MediterranesnDietView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      'Predicted',
+                                      'Prediksi',
                                       style: TextStyle(
                                         fontFamily: FintnessAppTheme.fontName,
                                         fontWeight: FontWeight.w500,

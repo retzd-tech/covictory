@@ -47,7 +47,7 @@ class WorkoutView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Next workout',
+                        '19:23 Sabtu, 22 Agustus 2020',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontFamily: FintnessAppTheme.fontName,
@@ -60,7 +60,7 @@ class WorkoutView extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Text(
-                          'Legs Toning and\nGlutes Workout at Home',
+                          'Mohon berhati - hati, anda sedang mengunjungi tempat dengan kemungkinan penularan yang tinggi, disarankan menhindari keramaian dan akan lebih baik kalau dirumah saja',
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontFamily: FintnessAppTheme.fontName,
@@ -83,7 +83,7 @@ class WorkoutView extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(left: 4),
                               child: Icon(
-                                Icons.timer,
+                                Icons.place,
                                 color: FintnessAppTheme.white,
                                 size: 16,
                               ),
@@ -91,7 +91,7 @@ class WorkoutView extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(left: 4.0),
                               child: Text(
-                                '68 min',
+                                'Upnormal Mojokerto',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontFamily: FintnessAppTheme.fontName,
