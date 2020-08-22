@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:covictory_ar/app/sign_in/validator.dart';
+import 'package:covictory_ar/pages/authentication/sign_in/validator.dart';
 import 'package:covictory_ar/common_widgets/form_submit_button.dart';
 import 'package:covictory_ar/common_widgets/platform_alert_dialog.dart';
 import 'package:covictory_ar/common_widgets/platform_exception_alert_dialog.dart';

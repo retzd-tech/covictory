@@ -1,6 +1,8 @@
-import 'package:covictory_ar/app/sign_in/email_password/email_password_sign_in_page.dart';
-import 'package:covictory_ar/app/sign_in/sign_in_manager.dart';
-import 'package:covictory_ar/app/sign_in/social_sign_in_button.dart';
+import 'package:covictory_ar/pages/authentication/background.dart';
+import 'package:covictory_ar/pages/authentication/loginUi.dart';
+import 'package:covictory_ar/pages/authentication/sign_in/email_password/email_password_sign_in_page.dart';
+import 'package:covictory_ar/pages/authentication/sign_in/sign_in_manager.dart';
+import 'package:covictory_ar/pages/authentication/sign_in/social_sign_in_button.dart';
 import 'package:covictory_ar/common_widgets/platform_exception_alert_dialog.dart';
 import 'package:covictory_ar/constants/keys.dart';
 import 'package:covictory_ar/constants/strings.dart';
@@ -10,6 +12,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:covictory_ar/pages/authentication/inputWidget.dart';
 
 class SignInPageBuilder extends StatelessWidget {
   // P<ValueNotifier>
@@ -87,35 +90,14 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 2.0,
-        title: Text(title),
-      ),
-      drawer: isLoading ? null : null,
-      backgroundColor: Colors.grey[200],
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          new Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Padding(padding: EdgeInsets.only(bottom: 30.0),child:new Image.asset('assets/powered_by.png',height: 25.0,fit: BoxFit.scaleDown,))
-            ],),
-          new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Image.asset(
-                'assets/covictory-logo.png',
-                width: 250,
-                height: 250,
-              ),
-              _buildSignIn(context),
-            ],
-          ),
-        ],
-      ),
-    );
+        resizeToAvoidBottomPadding: false,
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: <Widget>[
+            Background(),
+            _buildSignIn(context),
+          ],
+        ));
   }
 
   Widget _buildHeader() {
@@ -124,19 +106,15 @@ class SignInPage extends StatelessWidget {
         child: CircularProgressIndicator(),
       );
     }
-    return Text(
-      Strings.signIn,
-      textAlign: TextAlign.center,
-      style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.w600),
-    );
   }
 
   Widget _buildSignIn(BuildContext context) {
     final appleSignInAvailable = Provider.of<AppleSignInAvailable>(context);
     // Make content scrollable so that it fits on small screens
     return SingleChildScrollView(
+      padding: EdgeInsets.only(top: 280),
       child: Container(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -160,26 +138,50 @@ class SignInPage extends StatelessWidget {
               onPressed:
                   isLoading ? null : () => _signInWithEmailAndPassword(context),
               textColor: Colors.white,
-              color: Colors.teal[700],
-            ),
-
-            SizedBox(height: 8),
-            Text(
-              Strings.or,
-              style: TextStyle(fontSize: 14.0, color: Colors.black87),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 8),
-            SignInButton(
-              key: anonymousButtonKey,
-              text: Strings.goAnonymous,
-              color: Colors.lime[300],
-              textColor: Colors.black87,
-              onPressed: isLoading ? null : () => _signInAnonymously(context),
+              color: Colors.blueAccent[200],
             ),
           ],
         ),
       ),
     );
+  }
+}
+
+
+class MyApp2 extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        resizeToAvoidBottomPadding: false,
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: <Widget>[
+            Background(),
+            Login(),
+          ],
+        ));
   }
 }

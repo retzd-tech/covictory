@@ -1,4 +1,4 @@
-import 'package:covictory_ar/app/sign_in/email_password/email_password_sign_in_model.dart';
+import 'package:covictory_ar/pages/authentication/sign_in/email_password/email_password_sign_in_model.dart';
 import 'package:covictory_ar/common_widgets/form_submit_button.dart';
 import 'package:covictory_ar/common_widgets/platform_alert_dialog.dart';
 import 'package:covictory_ar/common_widgets/platform_exception_alert_dialog.dart';
@@ -7,6 +7,8 @@ import 'package:covictory_ar/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+
+import '../../background.dart';
 
 class EmailPasswordSignInPage extends StatefulWidget {
   const EmailPasswordSignInPage._(
@@ -195,7 +197,7 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
         elevation: 2.0,
         title: Text(model.title),
       ),
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(16.0),
