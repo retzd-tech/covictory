@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
@@ -20,20 +22,23 @@ class _ARModeState extends State<ARMode> {
   ArCoreController arCoreController;
 
   void _onArCoreViewCreated(ArCoreController _arCoreController) {
+    //make a limit 5 maybe
     var places = [
       {
+        "id" : "abc",
         "name": "Upnormal Mojokerto",
-        "healthIndex": 5.7,
       },
       {
+        "id": "def",
         "name": "Upnormal Surabaya",
-        "healthIndex": 8.7,
       }
     ];
     arCoreController = _arCoreController;
     arCoreController.onNodeTap = (name) => onTapHandler(name);
     for (var i = 0; i < places.length; i++) {
-      _addSphere(arCoreController, places[i]);
+      var random = new Random();
+      var dangerousIndex = random. nextInt(10);
+      _addSphere(arCoreController, places[i], dangerousIndex);
     }
   }
 
@@ -41,21 +46,38 @@ class _ARModeState extends State<ARMode> {
     showDialog<void>(
       context: context,
       builder: (BuildContext context) =>
-          AlertDialog(content: Text('onNodeTap on $name')),
+          AlertDialog(content: Text('$name')),
     );
   }
 
-  void _addSphere(ArCoreController _arCoreController, var places) {
-    final material = ArCoreMaterial(
-      color: Colors.red,
-    );
+  void _addSphere(ArCoreController _arCoreController, covariant places, covariant dangerousIndex) {
+    var material;
+    var message = '';
+      if (dangerousIndex <= 3) {
+        material = ArCoreMaterial(
+          color: Colors.green,
+        );
+        message = 'Tempat ini tidak memiliki resiko penularan yang tinggi, untuk berjaga - jaga tetap patuhi protokol kesehatan ya.';
+      }
+    if (dangerousIndex >= 4 && dangerousIndex <= 7) {
+      material = ArCoreMaterial(
+        color: Colors.yellow,
+      );
+      message = 'Tempat ini memiliki resiko penularan yang sedang, jika tidak terlalu darurat, lebih baik hindari tempat ini jika tempat ini ramai ya.';
+    }
+    if (dangerousIndex >= 8) {
+      material = ArCoreMaterial(
+        color: Colors.red,
+      );
+      message = 'Tempat ini memiliki resiko penularan yang sangat tinggi ! dimohon untuk berada di sekitar wilayah ini jika memungkinkan ya.';
+    }
     final sphere = ArCoreSphere(
       materials: [material],
-      radius: 0.2,
+      radius: 0.3,
     );
     final node = ArCoreNode(
       shape: sphere,
-      name: places.name,
+      name: places.name+", "+message,
       position: vector.Vector3(0, -0.3, -10),
     );
     _arCoreController.addArCoreNode(node);
