@@ -321,7 +321,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                       const EdgeInsets.only(
                                                           left: 4, bottom: 3),
                                                   child: Text(
-                                                    '${(8 * animation.value).toInt()}',
+                                                    '${(12 * animation.value).toInt()}',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontFamily:
@@ -508,7 +508,7 @@ class MediterranesnDietView extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  'Carbs',
+                                  'Yesterday',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: FintnessAppTheme.fontName,
@@ -551,7 +551,7 @@ class MediterranesnDietView extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 6),
                                   child: Text(
-                                    '12g left',
+                                    'Healthy',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: FintnessAppTheme.fontName,
@@ -575,7 +575,7 @@ class MediterranesnDietView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      'Protein',
+                                      'Today',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: FintnessAppTheme.fontName,
@@ -591,7 +591,7 @@ class MediterranesnDietView extends StatelessWidget {
                                         height: 4,
                                         width: 70,
                                         decoration: BoxDecoration(
-                                          color: HexColor('#F56E98')
+                                          color: HexColor('#F1B440')
                                               .withOpacity(0.2),
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(4.0)),
@@ -605,9 +605,9 @@ class MediterranesnDietView extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                 gradient:
                                                     LinearGradient(colors: [
-                                                  HexColor('#F56E98')
+                                                  HexColor('#F1B440')
                                                       .withOpacity(0.1),
-                                                  HexColor('#F56E98'),
+                                                  HexColor('#F1B440'),
                                                 ]),
                                                 borderRadius: BorderRadius.all(
                                                     Radius.circular(4.0)),
@@ -620,7 +620,7 @@ class MediterranesnDietView extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        '30g left',
+                                        'Warning',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: FintnessAppTheme.fontName,
@@ -646,7 +646,7 @@ class MediterranesnDietView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      'Fat',
+                                      'Predicted',
                                       style: TextStyle(
                                         fontFamily: FintnessAppTheme.fontName,
                                         fontWeight: FontWeight.w500,
@@ -662,7 +662,7 @@ class MediterranesnDietView extends StatelessWidget {
                                         height: 4,
                                         width: 70,
                                         decoration: BoxDecoration(
-                                          color: HexColor('#F1B440')
+                                          color: HexColor('#F56E98')
                                               .withOpacity(0.2),
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(4.0)),
@@ -676,9 +676,9 @@ class MediterranesnDietView extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                 gradient:
                                                     LinearGradient(colors: [
-                                                  HexColor('#F1B440')
+                                                  HexColor('#F56E98')
                                                       .withOpacity(0.1),
-                                                  HexColor('#F1B440'),
+                                                  HexColor('#F56E98'),
                                                 ]),
                                                 borderRadius: BorderRadius.all(
                                                     Radius.circular(4.0)),
@@ -691,7 +691,7 @@ class MediterranesnDietView extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        '10g left',
+                                        'Danger',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: FintnessAppTheme.fontName,
