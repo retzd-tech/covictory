@@ -1,4 +1,4 @@
-import 'package:covictory_ar/app/sign_in/validator.dart';
+import 'package:covictory_ar/pages/authentication/sign_in/validator.dart';
 import 'package:covictory_ar/constants/strings.dart';
 import 'package:covictory_ar/services/auth_service.dart';
 import 'package:flutter/foundation.dart';

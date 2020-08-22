@@ -1,12 +1,12 @@
 import 'dart:io';
-import 'package:covictory_ar/app_theme.dart';
-import 'package:covictory_ar/splash_screen.dart';
+import 'package:covictory_ar/constants/app_theme.dart';
+import 'package:covictory_ar/pages/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:covictory_ar/app/auth_widget_builder.dart';
-import 'package:covictory_ar/app/email_link_error_presenter.dart';
-import 'package:covictory_ar/app/auth_widget.dart';
+import 'package:covictory_ar/pages/authentication/auth_widget_builder.dart';
+import 'package:covictory_ar/pages/authentication/email_link_error_presenter.dart';
+import 'package:covictory_ar/pages/authentication/auth_widget.dart';
 import 'package:covictory_ar/services/apple_sign_in_available.dart';
 import 'package:covictory_ar/services/auth_service.dart';
 import 'package:covictory_ar/services/auth_service_adapter.dart';
@@ -64,6 +64,7 @@ class MyApp extends StatelessWidget {
       child: AuthWidgetBuilder(
           builder: (BuildContext context, AsyncSnapshot<User> userSnapshot) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(primarySwatch: Colors.indigo),
           home: EmailLinkErrorPresenter.create(
             context,
