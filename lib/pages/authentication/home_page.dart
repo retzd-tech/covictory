@@ -1,14 +1,14 @@
 import 'dart:async';
 
-import 'package:covictory_ar/app/location_list_page.dart';
-import 'package:covictory_ar/app/symptom_profile_page.dart';
 import 'package:covictory_ar/common_widgets/avatar.dart';
 import 'package:covictory_ar/common_widgets/platform_alert_dialog.dart';
 import 'package:covictory_ar/common_widgets/platform_exception_alert_dialog.dart';
 import 'package:covictory_ar/constants/keys.dart';
 import 'package:covictory_ar/constants/strings.dart';
 import 'package:covictory_ar/pages/authentication/background.dart';
+import 'package:covictory_ar/pages/authentication/location_list_page.dart';
 import 'package:covictory_ar/pages/authentication/loginUi.dart';
+import 'package:covictory_ar/pages/authentication/symptom_profile_page.dart';
 import 'package:covictory_ar/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -116,4 +116,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
