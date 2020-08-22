@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:covictory_ar/app/location_list_page.dart';
 import 'package:covictory_ar/app/symptom_profile_page.dart';
 import 'package:covictory_ar/common_widgets/avatar.dart';
 import 'package:covictory_ar/common_widgets/platform_alert_dialog.dart';
@@ -78,7 +79,12 @@ class HomePage extends StatelessWidget {
             ),
             RaisedButton(
               textColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LocationListPage()));
+              },
               child: Text('Places'),
               color: Colors.blue,
             ),
