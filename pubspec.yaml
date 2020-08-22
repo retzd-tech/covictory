@@ -33,11 +33,16 @@ dependencies:
   smooth_star_rating: ^1.1.1
   intl: ^0.16.0
   random_string: ^2.0.0
+  firebase_core: ^0.4.0
+  cloud_firestore: ^0.13.2
   firebase_auth: ^0.15.3
+  firebase_messaging: ^6.0.16
   google_sign_in: ^4.1.1
   flutter_facebook_login: ^3.0.0
   apple_sign_in: ^0.1.0
   provider: ^4.0.1
+  flutter_screenutil: ^2.3.0
+  http: ^0.12.2
   firebase_dynamic_links:
     git:
       url: https://github.com/mrmilu/flutterfire

@@ -6,7 +6,9 @@ import 'package:covictory_ar/common_widgets/platform_exception_alert_dialog.dart
 import 'package:covictory_ar/constants/keys.dart';
 import 'package:covictory_ar/constants/strings.dart';
 import 'package:covictory_ar/pages/authentication/background.dart';
+import 'package:covictory_ar/pages/authentication/location_list_page.dart';
 import 'package:covictory_ar/pages/authentication/loginUi.dart';
+import 'package:covictory_ar/pages/authentication/symptom_profile_page.dart';
 import 'package:covictory_ar/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -61,6 +63,36 @@ class HomePage extends StatelessWidget {
           child: _buildUserInfo(user),
         ),
       ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            RaisedButton(
+              textColor: Colors.white,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SymptomProfilePage()));
+              },
+              child: Text('Symptom'),
+              color: Colors.blue,
+            ),
+            RaisedButton(
+              textColor: Colors.white,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LocationListPage()));
+              },
+              child: Text('Places'),
+              color: Colors.blue,
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -84,4 +116,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-

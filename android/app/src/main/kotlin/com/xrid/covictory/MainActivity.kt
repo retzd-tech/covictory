@@ -1,4 +1,4 @@
-package com.xrid.covictory_ar
+package com.xrid.covictory
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
