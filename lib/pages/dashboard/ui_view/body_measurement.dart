@@ -39,8 +39,7 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
           symptomList = listSymptomFromJson(value.data);
         });
       });
-    } catch (e) {
-    }
+    } catch (e) {}
   }
 
   Future<void> setSymptom() async {
