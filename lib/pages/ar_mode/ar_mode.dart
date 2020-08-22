@@ -11,50 +11,77 @@ class ARMode extends StatefulWidget {
   _ARModeState createState() => _ARModeState();
 }
 
+class ARMarker {
+  double lat;
+  double long;
+}
+
 class _ARModeState extends State<ARMode> {
   ArCoreController arCoreController;
 
-  void _onArCoreViewCreated(ArCoreController _arCoreController){
+  void _onArCoreViewCreated(ArCoreController _arCoreController) {
+    var places = [
+      {
+        "name": "Upnormal Mojokerto",
+        "healthIndex": 5.7,
+      },
+      {
+        "name": "Upnormal Surabaya",
+        "healthIndex": 8.7,
+      }
+    ];
     arCoreController = _arCoreController;
-    _addSphere(arCoreController);
-    _addCube(arCoreController);
-    _addCylinder(arCoreController);
+    arCoreController.onNodeTap = (name) => onTapHandler(name);
+    for (var i = 0; i < places.length; i++) {
+      _addSphere(arCoreController, places[i]);
+    }
   }
 
-  void _addSphere(ArCoreController _arCoreController) {
-    final material = ArCoreMaterial(color: Colors.deepPurple, );
-    final sphere = ArCoreSphere(materials: [material], radius: 0.2,);
+  void onTapHandler(String name) {
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) =>
+          AlertDialog(content: Text('onNodeTap on $name')),
+    );
+  }
+
+  void _addSphere(ArCoreController _arCoreController, var places) {
+    final material = ArCoreMaterial(
+      color: Colors.red,
+    );
+    final sphere = ArCoreSphere(
+      materials: [material],
+      radius: 0.2,
+    );
     final node = ArCoreNode(
       shape: sphere,
-      position: vector.Vector3(
-          0, -0.3, -1
-      ),
+      name: places.name,
+      position: vector.Vector3(0, -0.3, -10),
     );
     _arCoreController.addArCoreNode(node);
   }
 
   void _addCylinder(ArCoreController _arCoreController) {
     final material = ArCoreMaterial(color: Colors.green, reflectance: 1);
-    final cylinder =
-    ArCoreCylinder(materials: [material], radius: 0.3,
-      height: 0.1,);
+    final cylinder = ArCoreCylinder(
+      materials: [material],
+      radius: 0.3,
+      height: 0.1,
+    );
     final node = ArCoreNode(
       shape: cylinder,
-      position: vector.Vector3(
-          -0.3, -1, -1.0
-      ),
+      position: vector.Vector3(-0.3, -1, -1.0),
     );
     _arCoreController.addArCoreNode(node);
   }
 
   _addCube(ArCoreController _arCoreController) {
     final material = ArCoreMaterial(color: Colors.pink, metallic: 1);
-    final cube = ArCoreCube(materials: [material], size: vector.Vector3(0.5, 0.5, 0.5));
+    final cube =
+        ArCoreCube(materials: [material], size: vector.Vector3(0.5, 0.5, 0.5));
     final node = ArCoreNode(
       shape: cube,
-      position: vector.Vector3(
-          0.5, -3, -3
-      ),
+      position: vector.Vector3(0.5, -3, -3),
     );
     _arCoreController.addArCoreNode(node);
   }
@@ -72,6 +99,7 @@ class _ARModeState extends State<ARMode> {
         title: Text(widget.title),
       ),
       body: ArCoreView(
+        enableTapRecognizer: true,
         onArCoreViewCreated: _onArCoreViewCreated,
       ),
     );

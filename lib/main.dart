@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:covictory_ar/constants/app_theme.dart';
+import 'package:covictory_ar/pages/ar_mode/ar_mode.dart';
 import 'package:covictory_ar/pages/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,7 +23,7 @@ void main() async {
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
-  ]).then((_) => {runApp(MyApp(appleSignInAvailable: appleSignInAvailable))});
+  ]).then((_) => {runApp(CovictoryAR())});
 }
 
 class MyApp extends StatelessWidget {
@@ -96,7 +97,7 @@ class CovictoryAR extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-      home: Splash(),
+      home: ARMode(title: 'AR Mode',),
     );
   }
 }
