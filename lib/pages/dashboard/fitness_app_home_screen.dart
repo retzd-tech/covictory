@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:covictory_ar/common_widgets/avatar.dart';
 import 'package:covictory_ar/pages/dashboard/models/tabIcon_data.dart';
 import 'package:covictory_ar/pages/dashboard/traning/training_screen.dart';
@@ -42,27 +44,52 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
     super.dispose();
   }
 
+  Future<bool> _onWillPop() {
+    return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Are you sure?'),
+            content: Text('Do you want to exit an App'),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('No'),
+              ),
+              FlatButton(
+                onPressed: () => exit(0),
+                /*Navigator.of(context).pop(true)*/
+                child: Text('Yes'),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: FintnessAppTheme.background,
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: FutureBuilder<bool>(
-          future: getData(),
-          builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-            if (!snapshot.hasData) {
-              return const SizedBox();
-            } else {
-              return Stack(
-                children: <Widget>[
-                  SizedBox(height: 8),
-                  tabBody,
-                  bottomBar(),
-                ],
-              );
-            }
-          },
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: Container(
+        color: FintnessAppTheme.background,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: FutureBuilder<bool>(
+            future: getData(),
+            builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+              if (!snapshot.hasData) {
+                return const SizedBox();
+              } else {
+                return Stack(
+                  children: <Widget>[
+                    SizedBox(height: 8),
+                    tabBody,
+                    bottomBar(),
+                  ],
+                );
+              }
+            },
+          ),
         ),
       ),
     );
