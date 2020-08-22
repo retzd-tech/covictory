@@ -40,15 +40,20 @@ class _ARModeState extends State<ARMode> {
     ];
     arCoreController = _arCoreController;
     arCoreController.onNodeTap = (name) => onTapHandler(name);
-    Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+//    Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
 //    for (var i = 0; i < places.length; i++) {
 //      var random = new Random();
 //      var dangerousIndex = random. nextInt(10);
-//      _addSphere(arCoreController, places[i], dangerousIndex);
+//      _addMarker(arCoreController, places[i], dangerousIndex);
 //    }
-    _addSphere(arCoreController, places[0] ,5);
-    _addCube(arCoreController);
-    _addCylinder(arCoreController);
+
+     //Already setup Google Cloud account to access Google Maps API and get the Json of Places near the user
+     //need more time to integrate with Google Maps API data for Places
+
+    _addMarker(arCoreController, 3.0, -5.0, 5, "Upnormal Cafe");
+    _addMarker(arCoreController,-3.0, -7.0, 2, "Sunrise Mall");
+    _addMarker(arCoreController, 1.0, 5.5, 9, "Central Square");
+    _addMarker(arCoreController, 7.0, 3.0, 4, "Warung Kopi Joss");
   }
 
   void onTapHandler(String name) {
@@ -59,64 +64,51 @@ class _ARModeState extends State<ARMode> {
     );
   }
 
-  void _addSphere(ArCoreController _arCoreController, covariant places, covariant dangerousIndex) {
-    var material = ArCoreMaterial(
+  void _addMarker(ArCoreController _arCoreController, covariant latitude, covariant longitude,covariant dangerousIndex, covariant placeName) {
+     print('latitude');
+     print(latitude);
+     var material = ArCoreMaterial(
       color: Colors.green,
     );
+    var markerNode;
     var message = '';
       if (dangerousIndex <= 3) {
         material = ArCoreMaterial(
           color: Colors.green,
         );
         message = 'Wilayah ini tidak memiliki resiko penularan yang tinggi, untuk berjaga - jaga tetap patuhi protokol kesehatan ya.';
+
+        markerNode = ArCoreReferenceNode(
+          name: placeName + ", " + message,
+          obcject3DFileName: 'green_marker.sfb',
+          position: vector.Vector3(latitude, 1, longitude),
+        );
       }
     if (dangerousIndex >= 4 && dangerousIndex <= 7) {
       material = ArCoreMaterial(
         color: Colors.yellow,
       );
       message = 'Wilayah ini memiliki resiko penularan yang sedang, jika tidak terlalu darurat, lebih baik hindari tempat ini jika tempat ini ramai ya.';
+
+      markerNode = ArCoreReferenceNode(
+        name:  placeName + ", " + message,
+        obcject3DFileName: 'yellow_marker.sfb',
+        position: vector.Vector3(latitude, 1, longitude),
+      );
     }
     if (dangerousIndex >= 8) {
       material = ArCoreMaterial(
         color: Colors.red,
       );
       message = 'Wilayah ini memiliki resiko penularan yang sangat tinggi ! dimohon untuk berada di sekitar wilayah ini jika memungkinkan ya.';
+
+      markerNode = ArCoreReferenceNode(
+        name:  placeName + ", " + message,
+        obcject3DFileName: 'red_marker.sfb',
+        position: vector.Vector3(latitude, 1, longitude),
+      );
     }
-    final sphere = ArCoreSphere(
-      materials: [material],
-      radius: 0.4,
-    );
-    final node = ArCoreNode(
-      shape: sphere,
-      name: places.name + message,
-      position: vector.Vector3(0.5, 1, -7),
-    );
-    _arCoreController.addArCoreNode(node);
-  }
-
-  void _addCylinder(ArCoreController _arCoreController) {
-    final material = ArCoreMaterial(color: Colors.green, reflectance: 1);
-    final cylinder = ArCoreCylinder(
-      materials: [material],
-      radius: 0.3,
-      height: 0.1,
-    );
-    final node = ArCoreNode(
-      shape: cylinder,
-      position: vector.Vector3(-0.3, -1, -1.0),
-    );
-    _arCoreController.addArCoreNode(node);
-  }
-
-  _addCube(ArCoreController _arCoreController) {
-    final material = ArCoreMaterial(color: Colors.pink, metallic: 1);
-    final cube =
-        ArCoreCube(materials: [material], size: vector.Vector3(0.5, 0.5, 0.5));
-    final node = ArCoreNode(
-      shape: cube,
-      position: vector.Vector3(0.5, -3, -3),
-    );
-    _arCoreController.addArCoreNode(node);
+    _arCoreController.addArCoreNode(markerNode);
   }
 
   @override
