@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
+import 'package:geolocator/geolocator.dart';
 
 class ARMode extends StatefulWidget {
   ARMode({Key key, this.title}) : super(key: key);
@@ -21,25 +22,31 @@ class ARMarker {
 class _ARModeState extends State<ARMode> {
   ArCoreController arCoreController;
 
-  void _onArCoreViewCreated(ArCoreController _arCoreController) {
+   void _onArCoreViewCreated(ArCoreController _arCoreController) async {
     //make a limit 5 maybe
     var places = [
       {
         "id" : "abc",
+        "latitude" : 4,
+        "longitude" : -3,
         "name": "Upnormal Mojokerto",
       },
       {
         "id": "def",
+        "latitude" : -8,
+        "longitude" : 5,
         "name": "Upnormal Surabaya",
       }
     ];
     arCoreController = _arCoreController;
     arCoreController.onNodeTap = (name) => onTapHandler(name);
-    for (var i = 0; i < places.length; i++) {
-      var random = new Random();
-      var dangerousIndex = random. nextInt(10);
-      _addSphere(arCoreController, places[i], dangerousIndex);
-    }
+    Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+//    for (var i = 0; i < places.length; i++) {
+//      var random = new Random();
+//      var dangerousIndex = random. nextInt(10);
+//      _addSphere(arCoreController, places[i], dangerousIndex);
+//    }
+    _addSphere(arCoreController, places[0], 5);
   }
 
   void onTapHandler(String name) {
@@ -51,7 +58,9 @@ class _ARModeState extends State<ARMode> {
   }
 
   void _addSphere(ArCoreController _arCoreController, covariant places, covariant dangerousIndex) {
-    var material;
+    var material = ArCoreMaterial(
+      color: Colors.green,
+    );
     var message = '';
       if (dangerousIndex <= 3) {
         material = ArCoreMaterial(
@@ -73,12 +82,12 @@ class _ARModeState extends State<ARMode> {
     }
     final sphere = ArCoreSphere(
       materials: [material],
-      radius: 0.3,
+      radius: 0.2,
     );
     final node = ArCoreNode(
       shape: sphere,
-      name: places.name+", "+message,
-      position: vector.Vector3(0, -0.3, -10),
+      name: "Upnormal Cafe" + message,
+      position: vector.Vector3(0, -0.5, 2),
     );
     _arCoreController.addArCoreNode(node);
   }

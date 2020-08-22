@@ -46,6 +46,7 @@ dependencies:
   rxdart: ^0.23.1
   flutter_secure_storage: ^3.3.1+1
   package_info: ^0.4.0+13
+  geolocator: ^5.3.2+2
 
 dev_dependencies:
   flutter_test:
