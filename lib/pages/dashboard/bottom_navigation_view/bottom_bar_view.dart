@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+import 'package:covictory_ar/pages/ar_mode/ar_mode.dart';
 import 'package:covictory_ar/pages/dashboard/fintness_app_theme.dart';
 import 'package:covictory_ar/pages/dashboard/models/tabIcon_data.dart';
 import 'package:covictory_ar/main.dart';
@@ -140,6 +141,11 @@ class _BottomBarViewState extends State<BottomBarView>
                           highlightColor: Colors.transparent,
                           focusColor: Colors.transparent,
                           onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        CovictoryAR()));
                             widget.addClick();
                           },
                           child: new Image.asset(

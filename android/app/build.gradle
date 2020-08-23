@@ -69,6 +69,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.ar.sceneform:core:1.11.0'
     implementation 'com.google.ar:core:1.11.0'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
     implementation 'com.android.support:multidex:1.0.3'
     testImplementation 'junit:junit:4.12'
@@ -78,3 +79,19 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+sceneform.asset('sampledata/red_marker.fbx', // 'Source Asset Path' specified during import.
+        'default',                            // 'Material Path' specified during import.
+        'sampledata/red_marker.sfa',         // '.sfa Output Path' specified during import.
+        'src/main/res/raw/red_marker')
+
+sceneform.asset('sampledata/yellow_marker.fbx', // 'Source Asset Path' specified during import.
+        'default',                            // 'Material Path' specified during import.
+        'sampledata/yellow_marker.sfa',         // '.sfa Output Path' specified during import.
+        'src/main/res/raw/yellow_marker')
+
+sceneform.asset('sampledata/green_marker.fbx', // 'Source Asset Path' specified during import.
+        'default',                            // 'Material Path' specified during import.
+        'sampledata/green_marker.sfa',         // '.sfa Output Path' specified during import.
+        'src/main/res/raw/green_marker')

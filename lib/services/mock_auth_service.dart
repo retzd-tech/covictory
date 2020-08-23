@@ -42,7 +42,7 @@ class MockAuthService implements AuthService {
     if (_usersStore.keys.contains(email)) {
       throw PlatformException(
         code: 'ERROR_EMAIL_ALREADY_IN_USE',
-        message: 'The email address is already registered. Sign in instead?',
+        message: 'Email sudah terdaftar, silahkan login menggunakan email tersebut',
       );
     }
     final User user = User(uid: random.randomAlphaNumeric(32), email: email);
@@ -57,14 +57,14 @@ class MockAuthService implements AuthService {
     if (!_usersStore.keys.contains(email)) {
       throw PlatformException(
         code: 'ERROR_USER_NOT_FOUND',
-        message: 'The email address is not registered. Need an account?',
+        message: 'Email tidak terdaftar, silahkan mendaftar terlebih dahulu',
       );
     }
     final _UserData _userData = _usersStore[email];
     if (_userData.password != password) {
       throw PlatformException(
         code: 'ERROR_WRONG_PASSWORD',
-        message: 'The password is incorrect. Please try again.',
+        message: 'Password salah, silahkan coba lagi',
       );
     }
     _add(_userData.user);
