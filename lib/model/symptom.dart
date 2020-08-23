@@ -27,23 +27,9 @@ List<Symptom> symptomList = [
   Symptom("Apakah hari ini anda merasa demam?", [false, false]),
   Symptom("Apakah hari ini anda merasa batuk kering?", [false, false]),
   Symptom("Apakah hari ini anda merasa kelelahan?", [false, false]),
-  Symptom(
-      "Apakah hari ini anda merasa tidak nyaman dan nyeri?", [false, false]),
   Symptom("Apakah hari ini anda merasa nyeri tenggorokan?", [false, false]),
   Symptom("Apakah hari ini anda merasa diare?", [false, false]),
   Symptom("Apakah hari ini mata anda merah?", [false, false]),
-  Symptom("Apakah hari ini anda merasa sakit kepala?", [false, false]),
   Symptom("Apakah hari ini indera perasa atau penciuman anda terganggu?",
       [false, false]),
-  Symptom(
-      "Apakah hari ini ada ruam pada kulit, atau perubahan warna pada jari tangan atau jari kaki?",
-      [false, false]),
-  Symptom("Apakah hari ini anda merasa kesulitan bernapas atau sesak napas?",
-      [false, false]),
-  Symptom(
-      "Apakah hari ini anda merasa nyeri dada atau rasa tertekan pada dada?",
-      [false, false]),
-  Symptom(
-      "Apakah hari ini anda merasa kesulitan untuk berbicara atau bergerak?",
-      [false, false])
 ];

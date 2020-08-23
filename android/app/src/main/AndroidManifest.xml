@@ -7,7 +7,7 @@
 
     <application
         android:name=".Application"
-        android:label="covictory_ar"
+        android:label="Covictory AR"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

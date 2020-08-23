@@ -65,8 +65,6 @@ class _ARModeState extends State<ARMode> {
   }
 
   void _addMarker(ArCoreController _arCoreController, covariant latitude, covariant longitude,covariant dangerousIndex, covariant placeName) {
-     print('latitude');
-     print(latitude);
      var material = ArCoreMaterial(
       color: Colors.green,
     );

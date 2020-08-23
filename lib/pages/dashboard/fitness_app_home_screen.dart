@@ -1,11 +1,15 @@
 import 'dart:io';
 
 import 'package:covictory_ar/common_widgets/avatar.dart';
+import 'package:covictory_ar/common_widgets/platform_alert_dialog.dart';
+import 'package:covictory_ar/common_widgets/platform_exception_alert_dialog.dart';
+import 'package:covictory_ar/constants/strings.dart';
 import 'package:covictory_ar/pages/dashboard/models/tabIcon_data.dart';
 import 'package:covictory_ar/pages/dashboard/traning/training_screen.dart';
 import 'package:covictory_ar/services/auth_service.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fintness_app_theme.dart';
@@ -129,17 +133,17 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
     return showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Are you sure?'),
-            content: Text('Do you want to exit an App'),
+            title: Text('Apa anda yakin ?'),
+            content: Text('Untuk keluar dari aplikasi ?'),
             actions: <Widget>[
               FlatButton(
                 onPressed: () => Navigator.of(context).pop(false),
-                child: Text('No'),
+                child: Text('Tidak'),
               ),
               FlatButton(
                 onPressed: () => exit(0),
                 /*Navigator.of(context).pop(true)*/
-                child: Text('Yes'),
+                child: Text('Ya'),
               ),
             ],
           ),

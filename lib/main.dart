@@ -23,7 +23,7 @@ void main() async {
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
-  ]).then((_) => {runApp(CovictoryAR())});
+  ]).then((_) => {runApp(MyApp(appleSignInAvailable: appleSignInAvailable))});
 }
 
 class MyApp extends StatelessWidget {

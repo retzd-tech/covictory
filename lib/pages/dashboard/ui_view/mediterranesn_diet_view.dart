@@ -227,7 +227,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                 padding: const EdgeInsets.only(
                                                     top: 6),
                                                 child: Text(
-                                                  'Status : Warning',
+                                                  'Status : Waspada',
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontFamily: FintnessAppTheme
@@ -559,7 +559,7 @@ class MediterranesnDietView extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 6),
                                   child: Text(
-                                    'Healthy',
+                                    'Sehat',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: FintnessAppTheme.fontName,
@@ -628,7 +628,7 @@ class MediterranesnDietView extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        'Warning',
+                                        'Waspada',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: FintnessAppTheme.fontName,
@@ -699,7 +699,7 @@ class MediterranesnDietView extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        'Danger',
+                                        'Terinfeksi',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: FintnessAppTheme.fontName,

@@ -1,4 +1,8 @@
 import 'package:covictory_ar/common_widgets/avatar.dart';
+import 'package:covictory_ar/common_widgets/platform_alert_dialog.dart';
+import 'package:covictory_ar/common_widgets/platform_exception_alert_dialog.dart';
+import 'package:covictory_ar/constants/keys.dart';
+import 'package:covictory_ar/constants/strings.dart';
 import 'package:covictory_ar/pages/dashboard/ui_view/body_measurement.dart';
 import 'package:covictory_ar/pages/dashboard/ui_view/glass_view.dart';
 import 'package:covictory_ar/pages/dashboard/ui_view/mediterranesn_diet_view.dart';
@@ -8,6 +12,7 @@ import 'package:covictory_ar/pages/dashboard/my_diary/meals_list_view.dart';
 import 'package:covictory_ar/pages/dashboard/my_diary/water_view.dart';
 import 'package:covictory_ar/services/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class MyDiaryScreen extends StatefulWidget {
@@ -110,6 +115,31 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     return true;
   }
 
+
+  Future<void> _signOut(BuildContext context) async {
+    try {
+      final AuthService auth = Provider.of<AuthService>(context, listen: false);
+      await auth.signOut();
+    } on PlatformException catch (e) {
+      await PlatformExceptionAlertDialog(
+        title: Strings.logoutFailed,
+        exception: e,
+      ).show(context);
+    }
+  }
+
+  Future<void> _confirmSignOut(BuildContext context) async {
+    final bool didRequestSignOut = await PlatformAlertDialog(
+      title: Strings.logout,
+      content: Strings.logoutAreYouSure,
+      cancelActionText: Strings.cancel,
+      defaultActionText: Strings.logout,
+    ).show(context);
+    if (didRequestSignOut == true) {
+      _signOut(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -210,6 +240,20 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                   ),
                                 ),
                               ),
+                            ),
+                            FlatButton(
+                              key: Key(Keys.logout),
+                              child: Text(
+                                Strings.logout,
+                                style: TextStyle(
+                                  fontFamily: FintnessAppTheme.fontName,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12 + 6 - 6 * topBarOpacity,
+                                  letterSpacing: 1.2,
+                                  color: FintnessAppTheme.darkerText,
+                                ),
+                              ),
+                              onPressed: () => _confirmSignOut(context),
                             ),
                           ],
                         ),

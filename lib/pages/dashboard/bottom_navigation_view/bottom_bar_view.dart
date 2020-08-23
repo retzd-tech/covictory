@@ -145,7 +145,7 @@ class _BottomBarViewState extends State<BottomBarView>
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        ARMode(title: 'AR Mode')));
+                                        CovictoryAR()));
                             widget.addClick();
                           },
                           child: new Image.asset(
