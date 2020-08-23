@@ -35,9 +35,11 @@ class _BodyMeasurementViewState extends State<BodyMeasurementView> {
           .document(uid)
           .get(source: Source.server)
           .then((value) {
-        setState(() {
-          symptomList = listSymptomFromJson(value.data);
-        });
+        if (value.data != null) {
+          setState(() {
+            symptomList = listSymptomFromJson(value.data);
+          });
+        }
       });
     } catch (e) {}
   }
