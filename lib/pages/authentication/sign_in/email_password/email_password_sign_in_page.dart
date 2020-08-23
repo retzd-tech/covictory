@@ -3,6 +3,7 @@ import 'package:covictory_ar/common_widgets/form_submit_button.dart';
 import 'package:covictory_ar/common_widgets/platform_alert_dialog.dart';
 import 'package:covictory_ar/common_widgets/platform_exception_alert_dialog.dart';
 import 'package:covictory_ar/constants/strings.dart';
+import 'package:covictory_ar/pages/dashboard/fintness_app_theme.dart';
 import 'package:covictory_ar/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -152,6 +153,7 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
     return FocusScope(
       node: _node,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           SizedBox(height: 8.0),
@@ -197,17 +199,33 @@ class _EmailPasswordSignInPageState extends State<EmailPasswordSignInPage> {
         elevation: 2.0,
         title: Text(model.title),
       ),
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Card(
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: _buildContent(),
-            ),
+//      backgroundColor: Colors.red,
+      body: Stack(
+        children: [
+          Background(),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+                padding: const EdgeInsets.only(
+                    left: 24, right: 24, top: 18, bottom: 16),
+                margin: const EdgeInsets.only(left: 24, right: 24, bottom: 50),
+                decoration: BoxDecoration(
+                  color: FintnessAppTheme.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8.0),
+                      bottomLeft: Radius.circular(8.0),
+                      bottomRight: Radius.circular(8.0),
+                      topRight: Radius.circular(68.0)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                        color: FintnessAppTheme.grey.withOpacity(0.2),
+                        offset: Offset(1.1, 1.1),
+                        blurRadius: 10.0),
+                  ],
+                ),
+                child: _buildContent()),
           ),
-        ),
+        ],
       ),
     );
   }
