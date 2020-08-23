@@ -47,16 +47,19 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
     firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
         debugPrint('onMessage: $message');
-        getDataFcm(message);
+//        getDataFcm(message);
+        navigate('onMessage');
       },
       onBackgroundMessage: onBackgroundMessage,
       onResume: (Map<String, dynamic> message) async {
         debugPrint('onResume: $message');
-        getDataFcm(message);
+//        getDataFcm(message);
+        navigate('onResume');
       },
       onLaunch: (Map<String, dynamic> message) async {
         debugPrint('onLaunch: $message');
-        getDataFcm(message);
+//        getDataFcm(message);
+        navigate('onLaunch');
       },
     );
     firebaseMessaging.requestNotificationPermissions(
@@ -108,6 +111,13 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
     }
     debugPrint('getDataFcm: name: $name & age: $age');
   }
+
+  navigate(String message) => Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => Container(
+                child: Text(message),
+              )));
 
   @override
   void dispose() {

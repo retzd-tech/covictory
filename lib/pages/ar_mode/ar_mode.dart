@@ -113,7 +113,9 @@ class _ARModeState extends State<ARMode> {
 
   @override
   void dispose() {
-    arCoreController.dispose();
+    try {
+      arCoreController.dispose();
+    } catch (_) {}
     super.dispose();
   }
 
